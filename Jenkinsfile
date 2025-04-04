@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "C:/Program Files/nodejs/;C:/Program Files/nodejs/node_modules/npm/bin;$PATH"
+        PATH = "C:/Program Files/nodejs/;${env.PATH}"
     }
     stages {
         stage('checkout') {
@@ -32,10 +32,12 @@ pipeline {
         stage('docker push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-                    bat 'docker login -u %DOCKERHUB_USERNAME% -p %DOCKERHUB_PASSWORD%'
-                    bat 'docker tag nestjs-server:1.0 andrevaleriounc/nestjs-server'
-                    bat 'docker push andrevaleriounc/nestjs-server'
-                    bat 'docker logout'
+                    bat """
+                        docker login -u %DOCKERHUB_USERNAME% -p %DOCKERHUB_PASSWORD%
+                        docker tag nestjs-server:1.0 %DOCKERHUB_USERNAME%/nestjs-server:1.0
+                        docker push %DOCKERHUB_USERNAME%/nestjs-server:1.0
+                        docker logout
+                    """
                 }
             }
         }
