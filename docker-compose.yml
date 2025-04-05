@@ -7,7 +7,7 @@ services:
       - "3000:3000"
     pull_policy: always
 
-    watchtower:
+  watchtower:
     image: containrrr/watchtower
     container_name: watchtower
     volumes:
