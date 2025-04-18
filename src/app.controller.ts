@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return 'mensagem de retorno';
+    return 'testando a pagina';
     return this.appService.getHello();
   }
 }
