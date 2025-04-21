@@ -5,6 +5,10 @@ services:
     restart: always
     ports:
       - "3000:3000"
+    networks:
+      - net
+    environment:
+      - DATABASE_URL=mysql://root:root@localhost:3307/atividade
     pull_policy: always
 
   watchtower:
@@ -14,3 +18,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --cleanup --interval 60
     restart: always
+
+networks:
+  net:
+    external: true
