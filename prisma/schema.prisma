@@ -16,5 +16,5 @@ datasource db {
 model to_do_list {
   id        Int      @id @default(autoincrement())
   title     String
-  created_at timestamp
+  created_at datetime
 }
