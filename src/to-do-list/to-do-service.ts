@@ -15,14 +15,13 @@ export class TodosService {
     }
 
     async create(dto: CreateToDo) {
-        return this.prisma.toDo.create(
-            //{ data: { title: dto.title } }
-
+        return this.prisma.to_do_list.create(
+            { data: { title: dto.title } }
         );
     }
 
     async remove(id: number) {
-        const todo = await this.prisma.toDo.delete({ where: { id } });
+        const todo = await this.prisma.to_do_list.delete({ where: { id } });
         if (!todo) throw new NotFoundException('Task not found');
         return todo;
     }
