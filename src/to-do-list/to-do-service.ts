@@ -7,7 +7,11 @@ export class TodosService {
     constructor(private prisma: PrismaService) {}
 
     async findAll() {
-        return this.prisma.toDo.findMany({ orderBy: { createdAt: 'desc' } });
+        return this.prisma.to_do_list.findMany(
+            //{ orderBy: 
+            //{ createdAt: 'desc' } 
+        //}
+    );
     }
 
     async create(dto: CreateToDo) {
