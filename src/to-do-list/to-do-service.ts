@@ -15,7 +15,10 @@ export class TodosService {
     }
 
     async create(dto: CreateToDo) {
-        return this.prisma.toDo.create({ data: { title: dto.title } });
+        return this.prisma.toDo.create(
+            //{ data: { title: dto.title } }
+
+        );
     }
 
     async remove(id: number) {
