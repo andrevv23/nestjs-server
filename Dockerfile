@@ -10,7 +10,7 @@ COPY package.json package-lock.json ./
 # Instala as dependências
 RUN npm install --only=production
 
-RUN npm npx prisma generate
+RUN npx prisma generate
 
 RUN npm install
 
