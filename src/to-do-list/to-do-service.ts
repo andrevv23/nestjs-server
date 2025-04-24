@@ -14,11 +14,11 @@ export class TodosService {
     );
     }
 
-    // async create(dto: CreateToDo) {
-    //     return this.prisma.to_do_list.create(
-    //         { data: { title: dto.title } }
-    //     );
-    // }
+    async create(dto: CreateToDo) {
+        return this.prisma.to_do_list.create(
+            { data: { title: dto.title } }
+        );
+    }
 
     async remove(id: number) {
         const todo = await this.prisma.to_do_list.delete({ where: { id } });
