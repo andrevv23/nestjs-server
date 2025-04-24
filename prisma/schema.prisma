@@ -17,4 +17,5 @@ model to_do_list {
   id        Int      @id @default(autoincrement())
   title     String
   created_at DateTime @default(now())
+  @@map("todos")
 }
