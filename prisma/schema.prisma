@@ -20,7 +20,6 @@ model to_do_list {
   @@map("todos")
 }
 
-
 model user {
   id        Int      @id @default(autoincrement())
   name      String
