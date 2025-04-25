@@ -24,3 +24,8 @@ model user {
   id        Int      @id @default(autoincrement())
   name      String
 }
+
+model luiz {
+  id        Int      @id @default(autoincrement())
+  name      String
+}
